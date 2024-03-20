@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/bd8f0cf54d.js" crossorigin="anonymous"></script>
+    {% block header %}
+    {% endblock header %}
+</head>
+<body class="bg-gray-200">
+    <!-- header -->
+    <header class="bg-gray-100 border-b border-b-gray-200">
+        <nav class="container mx-auto">
+            <!-- pc -->
+            <div class="flex justify-between mx-4 md:mx-0">
+                <div class="flex justify-between items-center">
+                    <a class="mr-4 py-3" href="#">
+                        <!-- <img class="w-10" src="./images/logo.svg" alt="Logo"> -->
+                        <img class="w-10" src="{% static 'images/logo.svg' %}" alt="Logo">
+                    </a>
+                    <span>Stay Hungry, Stay Young</span>
+                </div>
+                <ul class="hidden md:flex items-center space-x-7">
+                    <li>
+                        <a class="px-4 py-5 text-blog-dark" href="#">
+                            <i class="fa fa-home text-primary mr-1"></i>首 頁
+                        </a>
+                        <a class="px-4 py-5 text-blog-dark" href="#">
+                            <i class="fa fa-newspaper text-primary mr-1"></i>博文日誌
+                        </a>
+                        <a class="px-2 py-5 text-blog-dark" href="#">
+                            <i class="fa fa-laptop text-primary mr-1"></i>關於我
+                        </a>
+                    </li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="hidden md:flex items-center space-x-4">
+                    <form action="#">
+                        <div class="relative text-blog-dark">
+                            <input class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" type="search" name="q" id="q" autocomplete="false" placeholder="搜索">
+                            <button class="absolute right-0 top-0 mt-3 mr-4" type="submit">
+                                <!-- <img class="w-5 h-4" src="./images/search.svg" alt="Search"> -->
+                                <img class="w-5 h-4" src="{% static 'images/search.svg' %}" alt="Search">
+                            </button>
+                        </div>
+                    </form>
+                    <div>
+                        <a href="#" class="bg-primary text-white text-sm 
+                            py-2 px-4 rounded-full hover:bg-secondary">
+                            <i class="fa fa-keyboard mr-3"></i>寫文章
+                        </a>
+                    </div>
+                </div>
+                <!-- mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <i class="fa fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- mobile -->
+            <ul class="mobile-menu hidden md:hidden">
+                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="#">首 頁</a></li>
+                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white""><a href="#">博文日誌</a></li>
+                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white""><a href="#">關於我</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block breadcrumb %}
+    <!-- breadcrumbs -->
+    <nav class="py-3 px-5 text-blog-dark bg-gray-50">
+        <div class="container px-2">
+            <ul class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
+                <li>
+                    <a href="#"><i class="fa fa-home mr-1"></i>首 頁</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-chevron-right mr-2"></i>博文日誌</a>
+                </li>
+                <li>
+                    <i class="fa fa-chevron-right mr-2"></i><span class="text-gray-400">列表</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock breadcrumb %}
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- footer -->
+    <footer class="bg-blog-dark">
+        <div class="container hidden md:block">
+            <div class="flex justify-between space-x-4 pt-10 pb-5 font-light text-gray-300">
+                <div class="w-1/4">
+                    <div class="flex items-center space-x-4">
+                        <a href="#">
+                            <!-- <img class="w-10" src="./images/logo.svg" alt="Logo"> -->
+                            <img class="w-10" src="{% static 'images/logo.svg' %}" alt="Logo">
+                        </a>
+                        <span>Stay Hungry, Stay Young</span>
+                    </div>
+                    <p class="mt-4">個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介</p>
+                </div>
+                <div class="w-1/4">
+                    <h4 class="font-bold mb-3">最新博文</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 01</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 02</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 03</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 04</a></li>
+                    </ul>
+                </div>
+                <div class="w-1/4">
+                    <h4 class="font-bold mb-3">推薦閱讀</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 01</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 02</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 03</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 04</a></li>
+                    </ul>
+                </div>
+                <div class="w-1/4">
+                    <h4 class="font-bold mb-3">快速鏈接</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>首 頁</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>博文日誌</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>關於我</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- copyright -->
+        <div class="py-3 bg-black text-center text-sm text-white">
+            <p>Copyright &copy; 2024 <a class="hover:underline" href="mailto:wjlester77@gmail.com">&nbsp;Jonas&nbsp;</a> 版權所有</p>
+        </div>
+    </footer>
+
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+<script>
+    const btnBurger = document.querySelector('button.mobile-menu-button');
+    const menuMobile = document.querySelector('.mobile-menu');
+
+    btnBurger.addEventListener('click', () => {
+        menuMobile.classList.toggle('hidden');
+    }, false);
+</script>
+</html>

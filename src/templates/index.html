@@ -1,356 +1,223 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonas Blog</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://kit.fontawesome.com/bd8f0cf54d.js" crossorigin="anonymous"></script>
-</head>
-<body class="bg-gray-200">
-    <header class="bg-gray-100 border-b border-b-gray-200">
-        <nav class="container mx-auto">
-            <!-- pc -->
-            <div class="flex justify-between mx-4 md:mx-0">
-                <div class="flex justify-between items-center">
-                    <a class="mr-4 py-3" href="#">
-                        <!-- <img class="w-10" src="./images/logo.svg" alt="Logo"> -->
-                        <img class="w-10" src="{% static 'images/logo.svg' %}" alt="Logo">
-                    </a>
-                    <span>Stay Hungry, Stay Young</span>
-                </div>
-                <ul class="hidden md:flex items-center space-x-7">
-                    <li>
-                        <a class="px-4 py-5 text-blog-dark" href="#">
-                            <i class="fa fa-home text-primary mr-1"></i>首 頁
-                        </a>
-                        <a class="px-4 py-5 text-blog-dark" href="#">
-                            <i class="fa fa-newspaper text-primary mr-1"></i>博文日誌
-                        </a>
-                        <a class="px-2 py-5 text-blog-dark" href="#">
-                            <i class="fa fa-laptop text-primary mr-1"></i>關於我
-                        </a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <div class="hidden md:flex items-center space-x-4">
-                    <form action="#">
-                        <div class="relative text-blog-dark">
-                            <input class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" type="search" name="q" id="q" autocomplete="false" placeholder="搜索">
-                            <button class="absolute right-0 top-0 mt-3 mr-4" type="submit">
-                                <!-- <img class="w-5 h-4" src="./images/search.svg" alt="Search"> -->
-                                <img class="w-5 h-4" src="{% static 'images/search.svg' %}" alt="Search">
-                            </button>
-                        </div>
-                    </form>
-                    <div>
-                        <a href="#" class="bg-primary text-white text-sm 
-                            py-2 px-4 rounded-full hover:bg-secondary">
-                            <i class="fa fa-keyboard mr-3"></i>寫文章
-                        </a>
-                    </div>
-                </div>
-                <!-- mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button">
-                        <i class="fa fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- mobile -->
-            <ul class="mobile-menu hidden md:hidden">
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="#">首 頁</a></li>
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white""><a href="#">博文日誌</a></li>
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white""><a href="#">關於我</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- breadcrumbs -->
-    <nav class="py-3 px-5 text-blog-dark bg-gray-50">
-        <div class="container px-2">
-            <ul class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
-                <li>
-                    <a href="#"><i class="fa fa-home mr-1"></i>首 頁</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-chevron-right mr-2"></i>博文日誌</a>
-                </li>
-                <li>
-                    <i class="fa fa-chevron-right mr-2"></i><span class="text-gray-400">列表</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- slider -->
-    <section class="container mx-auto mt-4 overflow-hidden">
-        <img src="https://picsum.photos/id/124/1120/360" alt="">
-    </section>
-    <!-- main content -->
-    <main class="container my-4 flex flex-col md:flex-row items-start">
-        <!-- left block -->
-        <div class="w-full bg-white p-2 md:w-3/4 md:mr-4">
-            <!-- list item -->
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/110/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/111/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/112/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/121/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/122/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center my-3 py-4">
-                <a href="#" class="bg-secondary text-white py-3 px-8 rounded-md">查看所有博文 <i class="fa fa-angles-right"></i></a>
-            </div>
-        </div>
-        <!-- right block -->
-        <div class="w-full bg-white p-2 md:w-1/4">
-            <!-- weather forcast -->
-            <div class="mb-8 w-full relative">
-                <!-- <img class="w-full shadow-md" src="./images/weather.jpg" alt="Weather"> -->
-                <img class="w-full shadow-md" src="{% static 'images/weather.jpg' %}" alt="Weather">
-                <div class="absolute top-6 left-12 text-white">
-                    <div class="text-xl mb-2">新北天氣</div>
-                    <div class="text-4xl mb-2 font-light">晴</div>
-                    <div class="text-2xl mb-2 font-light">23</div>
-                </div>
-            </div>
-            <!-- Category -->
-            <div class="mb-8">
-                <h2 class="text-xl mb-3 border-b py-2">
-                    <span class="border-b-4 border-b-primary py-2">博文分類</span>
-                </h2>
-                <ul class="mb-6">
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>心情隨筆</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>LangChain筆記</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>React</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Vue</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Python</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Js/Ts/Node.JS</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Flutter/Dart</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                </ul>
-            </div>
-            <!-- newest articles -->
-            <div class="mb-8">
-                <h2 class="text-xl mb-3 border-b py-2">
-                    <span class="border-b-4 border-b-primary py-2">最新博文</span>
-                </h2>
-                <ul class="my-4">
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 01</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 02</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 03</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 04</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 05</a></li>
-                </ul>
-            </div>
-            <!-- recommended articles -->
-            <div class="mb-8">
-                <h2 class="text-xl mb-3 border-b py-2">
-                    <span class="border-b-4 border-b-primary py-2">推薦閱讀</span>
-                </h2>
-                <ul class="my-4">
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 01</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 02</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 03</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 04</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 05</a></li>
-                </ul>
-            </div>
-            <!-- hot tags -->
-            <div class="mb-2">
-                <h2 class="text-xl mb-3 border-b py-2">
-                    <span class="border-b-4 border-b-primary py-2">熱門標簽</span>
-                </h2>
-                <div class="my-4 text-xs text-white flex flex-wrap">
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">Python</a></span>
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">SQL</a></span>
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">FastAPI</a></span>
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">Django</a></span>
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">Flask</a></span>
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">React</a></span>
-                    <span class="bg-blog-dark p-2 m-1"><a href="#">LangChain</a></span>
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <!-- footer -->
-    <footer class="bg-blog-dark">
-        <div class="container hidden md:block">
-            <div class="flex justify-between space-x-4 pt-10 pb-5 font-light text-gray-300">
-                <div class="w-1/4">
-                    <div class="flex items-center space-x-4">
-                        <a href="#">
-                            <!-- <img class="w-10" src="./images/logo.svg" alt="Logo"> -->
-                            <img class="w-10" src="{% static 'images/logo.svg' %}" alt="Logo">
-                        </a>
-                        <span>Stay Hungry, Stay Young</span>
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<!-- slider -->
+<section class="container mx-auto mt-4 overflow-hidden">
+    <img src="https://picsum.photos/id/124/1120/360" alt="">
+</section>
+<!-- main content -->
+<main class="container my-4 flex flex-col md:flex-row items-start">
+    <!-- left block -->
+    <div class="w-full bg-white p-2 md:w-3/4 md:mr-4">
+        <!-- list item -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+            <!-- left -->
+            <div class="w-full md:w-1/4 md:mr-4 relative">
+                <img class="object-cover w-full" src="https://picsum.photos/id/110/240/160" alt="文章頭圖">
+                <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
+            </div>
+            <!-- right -->
+            <div class="md:w-3/4 box-border">
+                <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
+                <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
+                <!-- summary -->
+                <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
+                <div class="text-sm flex justify-between mb-2">
+                    <!-- left -->
+                    <div class="flex items-center items-center space-x-2 mt-2">
+                        <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                        <span>Jonas</span>
                     </div>
-                    <p class="mt-4">個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介個人簡介</p>
-                </div>
-                <div class="w-1/4">
-                    <h4 class="font-bold mb-3">最新博文</h4>
-                    <ul class="space-y-1">
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 01</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 02</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 03</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 04</a></li>
-                    </ul>
-                </div>
-                <div class="w-1/4">
-                    <h4 class="font-bold mb-3">推薦閱讀</h4>
-                    <ul class="space-y-1">
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 01</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 02</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 03</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 04</a></li>
-                    </ul>
-                </div>
-                <div class="w-1/4">
-                    <h4 class="font-bold mb-3">快速鏈接</h4>
-                    <ul class="space-y-1">
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>首 頁</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>博文日誌</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>關於我</a></li>
-                    </ul>
+                    <!-- right -->
+                    <div class="flex space-x-4 mt-3">
+                        <span><i class="fa fa-comment mr-1"></i>229</span>
+                        <span><i class="fa fa-eye mr-1"></i>229</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- copyright -->
-        <div class="py-3 bg-black text-center text-sm text-white">
-            <p>Copyright &copy; 2024 <a class="hover:underline" href="mailto:wjlester77@gmail.com">&nbsp;Jonas&nbsp;</a> 版權所有</p>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+            <!-- left -->
+            <div class="w-full md:w-1/4 md:mr-4 relative">
+                <img class="object-cover w-full" src="https://picsum.photos/id/111/240/160" alt="文章頭圖">
+                <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
+            </div>
+            <!-- right -->
+            <div class="md:w-3/4 box-border">
+                <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
+                <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
+                <!-- summary -->
+                <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
+                <div class="text-sm flex justify-between mb-2">
+                    <!-- left -->
+                    <div class="flex items-center items-center space-x-2 mt-2">
+                        <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                        <span>Jonas</span>
+                    </div>
+                    <!-- right -->
+                    <div class="flex space-x-4 mt-3">
+                        <span><i class="fa fa-comment mr-1"></i>229</span>
+                        <span><i class="fa fa-eye mr-1"></i>229</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-</body>
-<script>
-    const btnBurger = document.querySelector('button.mobile-menu-button');
-    const menuMobile = document.querySelector('.mobile-menu');
+        <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+            <!-- left -->
+            <div class="w-full md:w-1/4 md:mr-4 relative">
+                <img class="object-cover w-full" src="https://picsum.photos/id/112/240/160" alt="文章頭圖">
+                <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
+            </div>
+            <!-- right -->
+            <div class="md:w-3/4 box-border">
+                <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
+                <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
+                <!-- summary -->
+                <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
+                <div class="text-sm flex justify-between mb-2">
+                    <!-- left -->
+                    <div class="flex items-center items-center space-x-2 mt-2">
+                        <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                        <span>Jonas</span>
+                    </div>
+                    <!-- right -->
+                    <div class="flex space-x-4 mt-3">
+                        <span><i class="fa fa-comment mr-1"></i>229</span>
+                        <span><i class="fa fa-eye mr-1"></i>229</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+            <!-- left -->
+            <div class="w-full md:w-1/4 md:mr-4 relative">
+                <img class="object-cover w-full" src="https://picsum.photos/id/121/240/160" alt="文章頭圖">
+                <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
+            </div>
+            <!-- right -->
+            <div class="md:w-3/4 box-border">
+                <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
+                <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
+                <!-- summary -->
+                <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
+                <div class="text-sm flex justify-between mb-2">
+                    <!-- left -->
+                    <div class="flex items-center items-center space-x-2 mt-2">
+                        <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                        <span>Jonas</span>
+                    </div>
+                    <!-- right -->
+                    <div class="flex space-x-4 mt-3">
+                        <span><i class="fa fa-comment mr-1"></i>229</span>
+                        <span><i class="fa fa-eye mr-1"></i>229</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+            <!-- left -->
+            <div class="w-full md:w-1/4 md:mr-4 relative">
+                <img class="object-cover w-full" src="https://picsum.photos/id/122/240/160" alt="文章頭圖">
+                <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
+            </div>
+            <!-- right -->
+            <div class="md:w-3/4 box-border">
+                <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
+                <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
+                <!-- summary -->
+                <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
+                <div class="text-sm flex justify-between mb-2">
+                    <!-- left -->
+                    <div class="flex items-center items-center space-x-2 mt-2">
+                        <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                        <span>Jonas</span>
+                    </div>
+                    <!-- right -->
+                    <div class="flex space-x-4 mt-3">
+                        <span><i class="fa fa-comment mr-1"></i>229</span>
+                        <span><i class="fa fa-eye mr-1"></i>229</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center my-3 py-4">
+            <a href="#" class="bg-secondary text-white py-3 px-8 rounded-md">查看所有博文 <i class="fa fa-angles-right"></i></a>
+        </div>
+    </div>
+    <!-- right block -->
+    <div class="w-full bg-white p-2 md:w-1/4">
+        <!-- weather forcast -->
+        <div class="mb-8 w-full relative">
+            <!-- <img class="w-full shadow-md" src="./images/weather.jpg" alt="Weather"> -->
+            <img class="w-full shadow-md" src="{% static 'images/weather.jpg' %}" alt="Weather">
+            <div class="absolute top-6 left-12 text-white">
+                <div class="text-xl mb-2">新北天氣</div>
+                <div class="text-4xl mb-2 font-light">晴</div>
+                <div class="text-2xl mb-2 font-light">23</div>
+            </div>
+        </div>
+        <!-- Category -->
+        <div class="mb-8">
+            <h2 class="text-xl mb-3 border-b py-2">
+                <span class="border-b-4 border-b-primary py-2">博文分類</span>
+            </h2>
+            <ul class="mb-6">
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>心情隨筆</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>LangChain筆記</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>React</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Vue</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Python</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Js/Ts/Node.JS</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+                <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Flutter/Dart</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
+            </ul>
+        </div>
+        <!-- newest articles -->
+        <div class="mb-8">
+            <h2 class="text-xl mb-3 border-b py-2">
+                <span class="border-b-4 border-b-primary py-2">最新博文</span>
+            </h2>
+            <ul class="my-4">
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 01</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 02</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 03</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 04</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 05</a></li>
+            </ul>
+        </div>
+        <!-- recommended articles -->
+        <div class="mb-8">
+            <h2 class="text-xl mb-3 border-b py-2">
+                <span class="border-b-4 border-b-primary py-2">推薦閱讀</span>
+            </h2>
+            <ul class="my-4">
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 01</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 02</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 03</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 04</a></li>
+                <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 05</a></li>
+            </ul>
+        </div>
+        <!-- hot tags -->
+        <div class="mb-2">
+            <h2 class="text-xl mb-3 border-b py-2">
+                <span class="border-b-4 border-b-primary py-2">熱門標簽</span>
+            </h2>
+            <div class="my-4 text-xs text-white flex flex-wrap">
+                <span class="bg-blog-dark p-2 m-1"><a href="#">Python</a></span>
+                <span class="bg-blog-dark p-2 m-1"><a href="#">SQL</a></span>
+                <span class="bg-blog-dark p-2 m-1"><a href="#">FastAPI</a></span>
+                <span class="bg-blog-dark p-2 m-1"><a href="#">Django</a></span>
+                <span class="bg-blog-dark p-2 m-1"><a href="#">Flask</a></span>
+                <span class="bg-blog-dark p-2 m-1"><a href="#">React</a></span>
+                <span class="bg-blog-dark p-2 m-1"><a href="#">LangChain</a></span>
+            </div>
+        </div>
+    </div>
+</main>
 
-    btnBurger.addEventListener('click', () => {
-        menuMobile.classList.toggle('hidden');
-    }, false);
-</script>
-</html>
+{% endblock content %}
