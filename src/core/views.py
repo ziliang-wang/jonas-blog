@@ -5,6 +5,9 @@ from .models import Profile
 def index(request):
     return render(request, 'index.html')
 
+def details(request, pid):
+    return render(request, 'details.html')
+
 def about(request):
     item = Profile.objects.get(id=1)
     item.hits += 1
