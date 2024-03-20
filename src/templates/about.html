@@ -27,14 +27,14 @@
             <div class="rounded-t-md w-full h-32 relative bg-gradient-to-r from-purple-500 to-pink-500">
                 <div class="flex items-center space-x-6 absolute left-6 -bottom-4">
                     <!-- avatar -->
-                    <img class="rounded-full" width="100" height="100" src="{% static 'images/jonas.png' %}" alt="name">
+                    <img class="rounded-full" width="100" height="100" src="{{ item.avatar.url }}" alt="{{ item.fullname }}">
                     <!-- title -->
                     <div class="text-white">
-                        <h1 class="text-xl">Jonas 汪子良</h1>
-                        <p class="text-sm">全端工程師</p>
+                        <h1 class="text-xl">{{ item.fullname }}</h1>
+                        <p class="text-sm">{{ item.title }}</p>
                         <div class="mt-2 bg-white text-blog-dark text-xs rounded-sm shadow-lg py-1 px-5 text-center">
                             <span class="mr-4"><span class="text-primary">28</span> 篇博文</span>
-                            <span><span class="text-primary">133</span> 熱度</span>
+                            <span><span class="text-primary">{{ item.hits }}</span> 熱度</span>
                         </div>
                     </div>
                 </div>
@@ -43,15 +43,18 @@
             <!-- intro -->
             <div class="mt-8 mx-6">
                 <h2 class="mb-4 font-light text-xl">關於我</h2>
-                <p class="font-light text-sm">skjfksdjjsdkfskdlfdsklfnksjnlkbmgfkh</p>
+                <p class="font-light text-sm">{{ item.bio | safe }}</p>
             </div>
             <!-- contact info -->
             <ul class="m-6 text-sm text-teritary">
                 <li class="mb-1 bg-gray-50 py-1 flex items-center">
-                    <i class="fa-brands fa-line text-xl mr-3"></i> <span class="pb-1">wjlester77</span>
+                    <i class="fa-solid fa-at text-xl mr-3"></i> <span class="pb-1"><a href="emailto:{{item.email}}">{{ item.email }}</a></span>
                 </li>
                 <li class="mb-1 bg-gray-50 py-1 flex items-center">
-                    <i class="fa-brands fa-weixin text-xl mr-3"></i> <span class="pb-1">wj_lester</span>
+                    <i class="fa-brands fa-line text-xl mr-3"></i> <span class="pb-1">{{ item.line }}</span>
+                </li>
+                <li class="mb-1 bg-gray-50 py-1 flex items-center">
+                    <i class="fa-brands fa-weixin text-xl mr-3"></i> <span class="pb-1">{{ item.weixin }}</span>
                 </li>
             </ul>
         </div>
