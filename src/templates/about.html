@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}關於我{% endblock %}
+
+{% block breadcrumb %}
+<!-- breadcrumbs -->
+    <nav class="py-3 px-5 text-blog-dark bg-gray-50">
+        <div class="container px-2">
+            <ul class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
+                <li>
+                    <a href="/"><i class="fa fa-home mr-1"></i>首 頁</a>
+                </li>
+                <li>
+                    <i class="fa fa-chevron-right mr-2"></i><span class="text-gray-400">關於我</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock breadcrumb %}
+
+{% block content %}
+    <main class="container my-4 flex flex-col md:flex-row items-start px-2">
+        <!-- left side -->
+        <div class="w-full md:w-2/5 bg-white mb-4 md:mr-4 rounded-md shadow-md">
+            <!-- top background -->
+            <div class="rounded-t-md w-full h-32 relative bg-gradient-to-r from-purple-500 to-pink-500">
+                <div class="flex items-center space-x-6 absolute left-6 -bottom-4">
+                    <!-- avatar -->
+                    <img class="rounded-full" width="100" height="100" src="{% static 'images/jonas.png' %}" alt="name">
+                    <!-- title -->
+                    <div class="text-white">
+                        <h1 class="text-xl">Jonas 汪子良</h1>
+                        <p class="text-sm">全端工程師</p>
+                        <div class="mt-2 bg-white text-blog-dark text-xs rounded-sm shadow-lg py-1 px-5 text-center">
+                            <span class="mr-4"><span class="text-primary">28</span> 篇博文</span>
+                            <span><span class="text-primary">133</span> 熱度</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- intro -->
+            <div class="mt-8 mx-6">
+                <h2 class="mb-4 font-light text-xl">關於我</h2>
+                <p class="font-light text-sm">skjfksdjjsdkfskdlfdsklfnksjnlkbmgfkh</p>
+            </div>
+            <!-- contact info -->
+            <ul class="m-6 text-sm text-teritary">
+                <li class="mb-1 bg-gray-50 py-1 flex items-center">
+                    <i class="fa-brands fa-line text-xl mr-3"></i> <span class="pb-1">wjlester77</span>
+                </li>
+                <li class="mb-1 bg-gray-50 py-1 flex items-center">
+                    <i class="fa-brands fa-weixin text-xl mr-3"></i> <span class="pb-1">wj_lester</span>
+                </li>
+            </ul>
+        </div>
+        <!-- right side -->
+        <div class="w-full md:w-3/5 bg-white p-4">
+            <div>
+                <h2 class="text-lg py-2 border-b"><span class="py-2 border-b-4 border-b-primary">教育</span></h2>
+                <div class="py-4">
+                    <h3 class=""><span class="bg-gray-100 py-1 px-4">台北科技大學</span></h3>
+                    <!-- <h4><span class="bg-gray-100 py-1 px-4">曾任職於 互動資通 / 104人力銀行(上海) / 達芙妮國際(上海)</span></h4> -->
+                </div>
+            </div>
+            <div>
+                <h2 class="text-lg py-2 border-b"><span class="py-2 border-b-4 border-b-primary">經歷</span></h2>
+                <div class="py-4">
+                    <h3 class="mb-2"><span class="bg-gray-100 py-1 px-4">互動資通</span></h3>
+                    <h3 class="mb-2"><span class="bg-gray-100 py-1 px-4">達芙妮國際(上海)</span></h3>
+                    <h3 class=""><span class="bg-gray-100 py-1 px-4">104人力銀行(上海)</span></h3>
+                    <!-- <h4><span class="bg-gray-100 py-1 px-4">曾任職於 互動資通 / 104人力銀行(上海) / 達芙妮國際(上海)</span></h4> -->
+                </div>
+            </div>
+            <div>
+                <h2 class="text-lg py-2 border-b"><span class="py-2 border-b-4 border-b-primary">熟悉的技能</span></h2>
+                <div class="my-4 text-gray-500 flex justify-between">
+                    <ul class="space-y-2">
+                        <li><i class="fa fa-keyboard mr-2"></i>React</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Vue</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Flutter</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>MySQL</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>MongoDB</li>
+                    </ul>
+                    <ul class="space-y-2">
+                        <li><i class="fa fa-keyboard mr-2"></i>FastAPI</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Django</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Flask</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Node.Js</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Express</li>
+                    </ul>
+                    <ul class="space-y-2">
+                        <li><i class="fa fa-keyboard mr-2"></i>Python</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>LangChain</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>JavaScript</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>TypeScript</li>
+                        <li><i class="fa fa-keyboard mr-2"></i>Docker</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
