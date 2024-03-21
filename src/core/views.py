@@ -3,7 +3,8 @@ from .models import Profile, Category, Post
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    items = Post.objects.filter(status='published')[:10]
+    return render(request, 'index.html', {'items': items})
 
 def details(request, pid):
     item = Post.objects.get(id=pid)
@@ -33,5 +34,7 @@ def about(request):
 
 
 def posts(request):
-    """ 博文列表 """
-    return render(request, 'post-list.html')
+    """ 博文日誌列表 """
+    items = Post.objects.filter(status='published')[:10]
+    categories = Category.objects.all()    
+    return render(request, 'post-list.html', {'items': items, 'categories': categories})

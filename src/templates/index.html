@@ -15,138 +15,41 @@
         <!-- left block -->
         <div class="w-full bg-white p-2 md:w-3/4 md:mr-4">
             <!-- list item -->
+            {% for item in items %}
             <div class="flex flex-col md:flex-row justify-between items-center mb-3">
                 <!-- left -->
                 <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/110/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
+                    {% if item.img %}
+                    <img class="object-cover w-full md:w-60" src="{{ item.img.url }}" alt="{{ item.title }}">
+                    {% else %}
+                    <img class="object-cover w-full md:w-60" src="http://picsum.photos/800/600" alt="{{ item.title }}">
+                    {% endif %}
+                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">{{ item.category.name }}</span>
                 </div>
                 <!-- right -->
                 <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
+                    <h3 class="text-lg font-bold mt-2"><a href="{% url 'details' item.id %}">{{ item.title }}</a></h3>
                     <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
                     <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
+                    <p class="my-1 text-sm">{{ item.summary | safe }}</p>
                     <div class="text-sm flex justify-between mb-2">
                         <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <img class="w-7 rounded-full" src="{{ item.author.profile.avatar.url }}" alt="{{ item.author.profile.aliasname }}">
+                            <span>{{ item.author.profile.aliasname }}</span>
                         </div>
                         <!-- right -->
                         <div class="flex space-x-4 mt-3">
                             <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
+                            <span><i class="fa fa-eye mr-1"></i>{{ item.views }}</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/111/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/112/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/121/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
-                <!-- left -->
-                <div class="w-full md:w-1/4 md:mr-4 relative">
-                    <img class="object-cover w-full" src="https://picsum.photos/id/122/240/160" alt="文章頭圖">
-                    <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">心情隨筆</span>
-                </div>
-                <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="#">文章日誌標題文字內容</a></h3>
-                    <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
-                    <!-- summary -->
-                    <p class="my-1 text-sm">摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息摘要信息</p>
-                    <div class="text-sm flex justify-between mb-2">
-                        <!-- left -->
-                        <div class="flex items-center items-center space-x-2 mt-2">
-                            <img class="w-7 rounded-full" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
-                            <span>Jonas</span>
-                        </div>
-                        <!-- right -->
-                        <div class="flex space-x-4 mt-3">
-                            <span><i class="fa fa-comment mr-1"></i>229</span>
-                            <span><i class="fa fa-eye mr-1"></i>229</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+            <!-- more button -->
             <div class="text-center my-3 py-4">
-                <a href="#" class="bg-secondary text-white py-3 px-8 rounded-md">查看所有博文 <i class="fa fa-angles-right"></i></a>
+                <a href="{% url 'posts' %}" class="bg-secondary text-white py-3 px-8 rounded-md">查看所有博文 <i class="fa fa-angles-right"></i></a>
             </div>
         </div>
         <!-- right block -->
