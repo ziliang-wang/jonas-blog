@@ -70,6 +70,6 @@ class Post(models.Model):
     
 
     class Meta:
-        verbose_name = '博文日誌'
-        verbose_name_plural = '博文日誌'
+        verbose_name = '博文管理'
+        verbose_name_plural = '博文管理'
         ordering = ('-created',)

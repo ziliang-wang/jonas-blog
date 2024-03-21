@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} - 博文詳情頁{% endblock %}
+{% block title %} - {{item.title}}{% endblock %}
 
 {% block breadcrumb %}
 <!-- breadcrumbs -->
@@ -27,38 +27,42 @@
 <main class="container my-4 flex flex-col md:flex-row items-start">
     <!-- left block -->
     <div class="w-full bg-white p-2 md:w-3/4 md:mr-4">
-        <p><span class="bg-primary text-white py-1 px-4 text-sm">心情隨筆</span></p>
-        <h1 class="text-4xl font-light my-4">日誌文章標題文字</h1>
+        <p><span class="bg-primary text-white py-1 px-4 text-sm">{{ item.category.name }}</span></p>
+        <h1 class="text-4xl font-light my-4">{{ item.title }}</h1>
         <div class="flex justify-between text-sm text-gray-400">
             <!-- left -->
             <div class="flex items-center space-x-4">
-                <img class="rounded-full" src="https://picsum.photos/30" alt="Jonas">
-                <span>Jonas</span>
-                <span><i class="fas fa-clock"></i> 2024-03-21</span>
+                <img width="30" height="30" class="rounded-full" src="{{ item.author.profile.avatar.url }}" alt="{{ item.author.profile.aliasname }}">
+                <span>{{ item.author.profile.aliasname }}</span>
+                <span><i class="fas fa-clock"></i> {{ item.created }}</span>
             </div>
             <!-- right -->
             <div>
                 <span class="mr-4"><i class="fas fa-comment"></i> 25</span>
-                <span class="mr-4"><i class="fas fa-eye"></i> 25</span>
+                <span class="mr-4"><i class="fas fa-eye"></i> {{ item.views }}</span>
             </div>
         </div>
         <!-- 正文 -->
         <div class="my-6 space-y-4">
-            <img src="https://picsum.photos/800/400" alt="">
-            <p>段落1</p>
-            <p>段落2</p>
-            <p>段落3</p>
-            <p>段落4</p>
-            <p>段落5</p>
-            <p>段落6</p>
+            {% if item.img %}
+            <img src="{{ item.img.url }}" alt="{{ item.title }}">
+            {% else %}
+            <img src="https://picsum.photos/800/600" alt="{{ item.title }}">
+            {% endif %}
+            <div>
+                {{ item.body | safe }}
+            </div>
         </div>
         <!-- article tag -->
         <div class="my-4 border-y py-6 space-x-2 text-sm">
             <span><i class="fas fa-tag"></i> 標簽: </span>
-            <span class="py-1 px-2 bg-blog-dark text-white uppercase">python</span>
+            {% for tag in tags %}
+            <span class="py-1 px-2 bg-blog-dark text-white uppercase">{{ tag }}</span>
+            {% endfor %}
+            <!-- <span class="py-1 px-2 bg-blog-dark text-white uppercase">python</span>
             <span class="py-1 px-2 bg-blog-dark text-white uppercase">react</span>
             <span class="py-1 px-2 bg-blog-dark text-white uppercase">django</span>
-            <span class="py-1 px-2 bg-blog-dark text-white uppercase">sql</span>
+            <span class="py-1 px-2 bg-blog-dark text-white uppercase">sql</span> -->
         </div>
     </div>
     <!-- right block -->
