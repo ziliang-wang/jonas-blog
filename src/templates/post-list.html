@@ -68,8 +68,17 @@
             </div>
             {% endfor %}
             <!-- pagenation button -->
-            <div class="text-center my-3 py-4">
-                
+            <div class="container flex justify-center mx-auto py-4">
+                <ul class="flex">
+                    <!-- prev -->
+                    {% if items.has_previous %}
+                    <li><a href="?page={{ items.previous_page_number }}" class="mx-4 align-middle h-10 py-3 px-5 text-blog-dark bg-white border border-blog-dark">前一頁</a></li>
+                    {% endif %}
+                    <!-- next -->
+                    {% if items.has_next %}
+                    <li><a href="?page={{ items.next_page_number }}" class="mx-4 align-middle h-10 py-3 px-5 text-blog-dark bg-white border border-blog-dark">後一頁</a></li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
         <!-- right block -->

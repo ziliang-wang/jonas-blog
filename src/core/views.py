@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Profile, Category, Post
 
 # Create your views here.
@@ -37,6 +38,19 @@ def about(request):
 def posts(request):
     """ 博文日誌列表 """
     # items = Post.objects.filter(status='published')[:10]
-    items = Post.published.all()[:10]
+    # items = Post.published.all()[:10]
+    items = Post.published.all()
+    # 分頁器
+    paginator = Paginator(items, 10)
+    # 頁碼
+    page = request.GET.get('page')
+    # pager對像
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        items = paginator.page(1)
+    except EmptyPage:
+        items = paginator.page(paginator.num_pages)
+
     categories = Category.objects.all()    
     return render(request, 'post-list.html', {'items': items, 'categories': categories})
