@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -42,6 +43,12 @@ class Category(models.Model):
         verbose_name_plural = '博文分類'
 
 
+class PublishedManager(models.Manager):
+    """ 自定義模型管理器(查詢邏輯) """    
+    def get_queryset(self) -> models.QuerySet:
+        return super(PublishedManager, self).get_queryset().filter(status='published')
+    
+
 
 class Post(models.Model):
     STATUS_CHOICES = (
@@ -69,6 +76,16 @@ class Post(models.Model):
         return self.title
     
 
+    def get_absolute_url(self):
+        """ 獲取當前博文的絕對地址 """
+        return reverse('details', args=[self.id,])
+    
+    # default 模型管理器
+    objects = models.Manager()
+    
+    # 自定義模型管理器(獲取所有已發佈博文)
+    published = PublishedManager()
+    
     class Meta:
         verbose_name = '博文管理'
         verbose_name_plural = '博文管理'
