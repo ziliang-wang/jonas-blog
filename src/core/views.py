@@ -11,12 +11,12 @@ def details(request, pid):
 
     # prev
     try:
-        prev_post = item.get_next_by_created()
+        prev_post = item.get_previous_by_created()
     except Post.DoesNotExist:
         prev_post = None
     # next
     try:
-        next_post = item.get_previous_by_created()
+        next_post = item.get_next_by_created()
     except Post.DoesNotExist:
         next_post = None
 

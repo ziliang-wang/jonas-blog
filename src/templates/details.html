@@ -74,14 +74,22 @@
                 </div>
                 <div class="w-3/4">
                     <div class="text-sm"><i class="fas fa-caret-left text-primary"></i> 上一篇</div>
+                    {% if prev_post %}
                     <h4><a href="{% url 'details' prev_post.id %}">{{ prev_post.title }}</a></h4>
+                    {% else %}
+                    <h4>沒有了</h4>
+                    {% endif %}
                 </div>
             </div>
             <!-- next button -->
             <div class="flex w-full md:w-1/2 justify-between items-center space-x-2">
                 <div class="w-3/4 md:justify-end md:text-right">
                     <div class="text-sm">下一篇 <i class="fas fa-caret-right text-primary"></i></div>
+                    {% if next_post %}
                     <h4><a href="{% url 'details' next_post.id %}">{{ next_post.title }}</a></h4>
+                    {% else %}
+                    <h4>沒有了</h4>
+                    {% endif %}
                 </div>
                 <div class="w-1/4">
                     {% if next_post.img %}
