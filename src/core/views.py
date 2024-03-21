@@ -8,7 +8,22 @@ def index(request):
 def details(request, pid):
     item = Post.objects.get(id=pid)
     tags = item.tags.split(',')
-    return render(request, 'details.html', {'item': item, 'tags': tags})
+
+    # prev
+    try:
+        prev_post = item.get_next_by_created()
+    except Post.DoesNotExist:
+        prev_post = None
+    # next
+    try:
+        next_post = item.get_previous_by_created()
+    except Post.DoesNotExist:
+        next_post = None
+
+    return render(request, 'details.html', 
+                  {'item': item, 'tags': tags, 
+                    'prev_post': prev_post,
+                    'next_post': next_post })
 
 def about(request):
     item = Profile.objects.get(id=1)
