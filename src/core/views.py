@@ -30,3 +30,8 @@ def about(request):
     item.hits += 1
     item.save()
     return render(request, 'about.html', {'item': item})
+
+
+def posts(request):
+    """ 博文列表 """
+    return render(request, 'post-list.html')

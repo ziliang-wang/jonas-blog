@@ -57,7 +57,7 @@
         <div class="my-4 border-y py-6 space-x-2 text-sm px-2">
             <span><i class="fas fa-tag"></i> 標簽: </span>
             {% for tag in tags %}
-            <span class="py-1 px-2 bg-blog-dark text-white uppercase">{{ tag }}</span>
+            <span class="py-1 px-2 bg-blog-dark text-white uppercase mb-2 inline-block space-y-2">{{ tag }}</span>
             {% endfor %}
         </div>
         <!-- last next -->
@@ -98,6 +98,20 @@
                     <img class="rounded-md" src="https://picsum.photos/140/125" alt="{{ next_post.title }}">
                     {% endif %}
                 </div>
+            </div>
+        </div>
+        <!-- author info -->
+        <div class="flex justify-between items-center my-4 p-4 bg-gray-100 rounded-md ">
+            <!-- author avatar -->
+            <div class="w-1/5 mr-4 md:mr-0">
+                <img class="w-24 rounded-full" src="{{ item.author.profile.avatar.url }}" alt="{{ item.author.profile.fullname }}">
+            </div>
+            <!-- author intro -->
+            <div class="w-4/5">
+                <h4 class="text-xl font-light mb-4">{{ item.author.profile.aliasname }}</h4>
+                <p class="text-sm text-blog-dark">
+                    {{ item.author.profile.bio | safe }}
+                </p>
             </div>
         </div>
     </div>

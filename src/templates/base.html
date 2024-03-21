@@ -18,7 +18,7 @@
             <!-- pc -->
             <div class="flex justify-between mx-4 md:mx-0">
                 <div class="flex justify-between items-center">
-                    <a class="mr-4 py-3" href="#">
+                    <a class="mr-4 py-3" href="/">
                         <!-- <img class="w-10" src="./images/logo.svg" alt="Logo"> -->
                         <img class="w-10" src="{% static 'images/logo.svg' %}" alt="Logo">
                     </a>
@@ -29,10 +29,10 @@
                         <a class="px-4 py-5 text-blog-dark" href="/">
                             <i class="fa fa-home text-primary mr-1"></i>首 頁
                         </a>
-                        <a class="px-4 py-5 text-blog-dark" href="#">
+                        <a class="px-4 py-5 text-blog-dark" href="{% url 'posts' %}">
                             <i class="fa fa-newspaper text-primary mr-1"></i>博文日誌
                         </a>
-                        <a class="px-2 py-5 text-blog-dark" href="/about">
+                        <a class="px-2 py-5 text-blog-dark" href="{% url 'about' %}">
                             <i class="fa fa-laptop text-primary mr-1"></i>關於我
                         </a>
                     </li>
@@ -65,9 +65,9 @@
             </div>
             <!-- mobile -->
             <ul class="mobile-menu hidden md:hidden">
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="#">首 頁</a></li>
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white""><a href="#">博文日誌</a></li>
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white""><a href="#">關於我</a></li>
+                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="/">首 頁</a></li>
+                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="{% url 'posts' %}">博文日誌</a></li>
+                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="{% url 'about' %}">關於我</a></li>
             </ul>
         </nav>
     </header>
