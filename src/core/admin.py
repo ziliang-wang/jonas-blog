@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django import forms
 from .models import Profile, Category, Post
+from django_summernote.admin import SummernoteModelAdmin
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 # Register your models here.
 class ProfileAdmin(admin.ModelAdmin):
     """ 個人資料管理 """
@@ -40,7 +42,8 @@ class PostAdminForm(forms.ModelForm):
         model = Post
         fields = '__all__'
         widgets = {
-            'summary': forms.Textarea
+            'summary': forms.Textarea,
+            'body': SummernoteWidget()
         }
 
 

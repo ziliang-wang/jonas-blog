@@ -17,14 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
-from django.urls import path
+from django.urls import path, include
 from core import views
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('posts/<int:pid>', views.details, name='details'),
-    path("admin/", admin.site.urls)
+    path("admin/", admin.site.urls),
+    path('summernote/', include('django_summernote.urls'))
 ]
 
 if settings.DEBUG:
