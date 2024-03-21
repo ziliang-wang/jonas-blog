@@ -61,41 +61,42 @@
             {% endfor %}
         </div>
         <!-- last next -->
-        <div class="my-6 flex flex-col md:flex-row justify-between">
+        <div class="my-6 flex md:flex-row md:px-2 justify-between">
             <!-- last button -->
-            <div class="flex w-full md:w-1/2 justify-between items-center space-x-2 md:border-r ">
-                <div class="w-1/4">
+            <div class="flex w-full md:w-1/2 justify-between items-center space-x-2 md:border-r -mx-12 md:mx-0">
+                <div class="md:w-1/4">
                     <!-- https://picsum.photos/140/125 -->
                     {% if prev_post.img %}
-                    <img class="rounded-md" src="{{ prev_post.img.url }}" alt="{{ prev_post.title }}">
+                    <img class="rounded-md hidden md:block" src="{{ prev_post.img.url }}" alt="{{ prev_post.title }}">
                     {% else %}
-                    <img class="rounded-md" src="https://picsum.photos/140/125" alt="{{ prev_post.title }}">
+                    <img class="rounded-md hidden md:block" src="https://picsum.photos/140/125" alt="{{ prev_post.title }}">
                     {% endif %}
                 </div>
                 <div class="w-3/4">
-                    <div class="text-sm"><i class="fas fa-caret-left text-primary"></i> 上一篇</div>
                     {% if prev_post %}
+                    <div class="text-sm"><a href="{% url 'details' prev_post.id %}"><i class="fas fa-caret-left text-primary"></i> 上一篇</a></div>
                     <h4><a href="{% url 'details' prev_post.id %}">{{ prev_post.title }}</a></h4>
                     {% else %}
-                    <h4>沒有了</h4>
+                    <h4>沒有上一篇了</h4>
                     {% endif %}
                 </div>
             </div>
             <!-- next button -->
-            <div class="flex w-full md:w-1/2 justify-between items-center space-x-2">
-                <div class="w-3/4 md:justify-end md:text-right">
-                    <div class="text-sm">下一篇 <i class="fas fa-caret-right text-primary"></i></div>
+            <div class="flex w-full md:w-1/2 justify-between items-center space-x-2 -mx-12 md:mx-0">
+                <div class="w-3/4 text-right md:justify-end md:text-right">
+                    
                     {% if next_post %}
+                    <div class="text-sm"><a href="{% url 'details' next_post.id %}">下一篇 <i class="fas fa-caret-right text-primary"></i></a></div>
                     <h4><a href="{% url 'details' next_post.id %}">{{ next_post.title }}</a></h4>
                     {% else %}
-                    <h4>沒有了</h4>
+                    <h4>沒有下一篇了</h4>
                     {% endif %}
                 </div>
                 <div class="w-1/4">
                     {% if next_post.img %}
-                    <img class="rounded-md" src="{{ next_post.img.url }}" alt="{{ next_post.title }}">
+                    <img class="rounded-md hidden md:block" src="{{ next_post.img.url }}" alt="{{ next_post.title }}">
                     {% else %}
-                    <img class="rounded-md" src="https://picsum.photos/140/125" alt="{{ next_post.title }}">
+                    <img class="rounded-md hidden md:block" src="https://picsum.photos/140/125" alt="{{ next_post.title }}">
                     {% endif %}
                 </div>
             </div>
