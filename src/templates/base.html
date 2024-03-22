@@ -110,19 +110,17 @@
                 <div class="w-1/4">
                     <h4 class="font-bold mb-3">最新博文</h4>
                     <ul class="space-y-1">
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 01</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 02</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 03</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 04</a></li>
+                        {% for item in LATEST_POSTS %}
+                            <li><a href="{{ item.get_absolute_url }}"><i class="fa fa-chevron-right mr-2"></i>{{ item.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="w-1/4">
                     <h4 class="font-bold mb-3">推薦閱讀</h4>
                     <ul class="space-y-1">
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 01</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 02</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 03</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right mr-2"></i>Blog文章標題文字 04</a></li>
+                        {% for item in RECOMMEND_POSTS %}
+                            <li><a href="{{ item.get_absolute_url }}"><i class="fa fa-chevron-right mr-2"></i>{{ item.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="w-1/4">
