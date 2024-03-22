@@ -16,7 +16,8 @@ def details(request, slug):
     # item = Post.objects.get(id=pid)
     item = Post.objects.get(slug=slug)
     # tags = item.tags.split(',')
-
+    item.views += 1
+    item.save()
     # prev
     try:
         prev_post = item.get_previous_by_created()
