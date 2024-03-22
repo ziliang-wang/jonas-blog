@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Profile, Category, Post
+from .models import Profile, Category, Post, Comment
 from taggit.models import Tag
+# from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
@@ -9,7 +10,9 @@ def index(request):
     items = Post.published.all()[:10]
     return render(request, 'index.html', {'items': items})
 
+
 def details(request, pid):
+
     item = Post.objects.get(id=pid)
     # tags = item.tags.split(',')
 
@@ -23,6 +26,20 @@ def details(request, pid):
         next_post = item.get_next_by_created()
     except Post.DoesNotExist:
         next_post = None
+
+    if request.method == 'POST':
+        name = request.POST.get('name', None)
+        body = request.POST.get('body', None)
+
+        if name and body:
+            comment = Comment()
+            comment.post = item
+            comment.name = name
+            comment.body = body
+            comment.ip = get_client_ip(request)
+            comment.save()  
+
+        return redirect(item.get_absolute_url())
 
     return render(request, 'details.html', 
                   {'item': item, 
@@ -67,3 +84,12 @@ def posts(request):
 
     categories = Category.objects.all()    
     return render(request, 'post-list.html', {'items': items, 'categories': categories})
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
