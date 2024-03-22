@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from .models import Profile, Category, Post
+from .models import Profile, Category, Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 # Register your models here.
@@ -56,3 +56,11 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('category', 'flag', 'status')
     date_hierarchy = 'created'
     ordering = ('-created', 'status')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    """ 評論管理 """
+    list_display = ('post', 'name', 'ip', 'active', 'created')
+    list_filter = ('active', 'created')
+    ordering = ('-created',)
