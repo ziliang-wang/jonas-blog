@@ -10,7 +10,7 @@ def index(request):
 
 def details(request, pid):
     item = Post.objects.get(id=pid)
-    tags = item.tags.split(',')
+    # tags = item.tags.split(',')
 
     # prev
     try:
@@ -24,7 +24,8 @@ def details(request, pid):
         next_post = None
 
     return render(request, 'details.html', 
-                  {'item': item, 'tags': tags, 
+                  {'item': item, 
+                #    'tags': tags, 
                     'prev_post': prev_post,
                     'next_post': next_post })
 

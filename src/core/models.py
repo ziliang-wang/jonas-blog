@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 # Create your models here.
 
 class Profile(models.Model):
@@ -63,7 +64,8 @@ class Post(models.Model):
     summary = models.CharField('摘要', max_length=250, blank=True)
     body = models.TextField('正文')
 
-    tags = models.CharField('標簽', max_length=200)
+    # tags = models.CharField('標簽', max_length=200)
+    tags = TaggableManager('標籤')
 
     views = models.IntegerField('瀏覽數', default=0)
     flag = models.BooleanField('標記', default=False)

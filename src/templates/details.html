@@ -56,7 +56,7 @@
         <!-- article tag -->
         <div class="my-4 border-y py-6 space-x-2 text-sm px-2">
             <span><i class="fas fa-tag"></i> 標簽: </span>
-            {% for tag in tags %}
+            {% for tag in item.tags.all %}
             <span class="py-1 px-2 bg-blog-dark text-white uppercase mb-2 inline-block space-y-2">{{ tag }}</span>
             {% endfor %}
         </div>
