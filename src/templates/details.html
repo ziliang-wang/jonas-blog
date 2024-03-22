@@ -131,22 +131,26 @@
                 <span class="border-b-4 border-b-primary py-4">精彩評論</span>
             </h4>
             <!-- comment list -->
-            <div class="flex my-4">
-                <!-- left -->
-                <div class="mr-4">
-                    <img class="rounded-full" src="https://picsum.photos/40" alt="">
-                </div>
-                <!-- right -->
-                <div class="">
-                    <!-- top -->
-                    <h4>張三豐</h4>
-                    <!-- middle -->
-                    <p class="text-sm space-x-4"><span>2022-09-01 13:22</span><span>192.168.1.1</span></p>
-                    <!-- bottom -->
-                    <p class="my-2 text-sm">內容1內容1內容1內容1內容1內容1內容1內容1內容1內容1內容1內容1內容1</p>
-                    <hr>
-                </div>
-            </div>
+            {% for comment in item.comments.all %}
+                {% if comment.active %}
+                    <div class="flex my-4">
+                        <!-- left -->
+                        <div class="mr-4">
+                            <img class="rounded-full" src="https://picsum.photos/40" alt="{{ comment.name }}">
+                        </div>
+                        <!-- right -->
+                        <div class="">
+                            <!-- top -->
+                            <h4>{{ comment.name }}</h4>
+                            <!-- middle -->
+                            <p class="text-sm space-x-4"><span>{{ comment.created }}</span><span>{{ comment.ip }}</span></p>
+                            <!-- bottom -->
+                            <p class="my-2 text-sm">{{ comment.body }}</p>
+                            <hr>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %} 
         </div>
     </div>
     <!-- right block -->
