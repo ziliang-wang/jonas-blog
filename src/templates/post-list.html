@@ -28,9 +28,9 @@
             <!-- category list -->
             <div class="w-full my-4 border-b-2 border-b-primary">
                 <ul class="flex items-center flex-row space-x-1">
-                    <li class="bg-primary text-white py-1 px-3">全部</li>
+                    <li class="bg-primary text-white py-1 px-3"><a href="{% url 'posts' %}">全部</a></li>
                     {% for cat in categories %}
-                    <li class="bg-gray-100 text-black py-1 px-3"><a href="#">{{ cat.name }}</a></li>
+                    <li class="bg-gray-100 text-black py-1 px-3"><a href="?cat={{ cat.id }}">{{ cat.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

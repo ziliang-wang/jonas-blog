@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Profile, Category, Post
+from taggit.models import Tag
 
 # Create your views here.
 def index(request):
@@ -41,6 +42,17 @@ def posts(request):
     # items = Post.objects.filter(status='published')[:10]
     # items = Post.published.all()[:10]
     items = Post.published.all()
+    # 按 標簽 / 分類 過濾
+    tag = request.GET.get('tag', None)
+    cat = request.GET.get('cat', None)
+
+    if tag:
+        tag_obj = Tag.objects.get(slug=tag)
+        items = items.filter(tags__in=[tag_obj])
+    
+    if cat:
+        items = items.filter(category__id=cat)
+
     # 分頁器
     paginator = Paginator(items, 10)
     # 頁碼
