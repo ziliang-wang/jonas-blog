@@ -79,7 +79,8 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         """ 獲取當前博文的絕對地址 """
-        return reverse('details', args=[self.id,])
+        # return reverse('details', args=[self.id,])
+        return reverse('details', args=[self.slug,])
     
     # default 模型管理器
     objects = models.Manager()

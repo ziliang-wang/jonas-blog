@@ -11,9 +11,10 @@ def index(request):
     return render(request, 'index.html', {'items': items})
 
 
-def details(request, pid):
+def details(request, slug):
 
-    item = Post.objects.get(id=pid)
+    # item = Post.objects.get(id=pid)
+    item = Post.objects.get(slug=slug)
     # tags = item.tags.split(',')
 
     # prev
