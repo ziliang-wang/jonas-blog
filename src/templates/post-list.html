@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load core_extras %}
 
 {% block breadcrumb %}
 <nav class="py-3 px-5 text-blog-dark bg-gray-50">
@@ -28,9 +29,17 @@
             <!-- category list -->
             <div class="w-full my-4 border-b-2 border-b-primary">
                 <ul class="flex items-center flex-row space-x-1">
-                    <li class="bg-primary text-white py-1 px-3"><a href="{% url 'posts' %}">全部</a></li>
+                    {% if not request.GET.cat %}
+                        <li class="bg-primary text-white py-1 px-3"><a href="{% url 'posts' %}">全部</a></li>
+                    {% else %}
+                        <li class="bg-gray-100 text-black py-1 px-3"><a href="{% url 'posts' %}">全部</a></li>
+                    {% endif %}
                     {% for cat in categories %}
-                    <li class="bg-gray-100 text-black py-1 px-3"><a href="?cat={{ cat.id }}">{{ cat.name }}</a></li>
+                        {% if request.GET.cat == cat.id|to_str %}
+                            <li class="bg-primary text-white py-1 px-3"><a href="?cat={{ cat.id }}">{{ cat.name }}</a></li>
+                        {% else %}
+                            <li class="bg-gray-100 text-black py-1 px-3"><a href="?cat={{ cat.id }}">{{ cat.name }}</a></li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>
