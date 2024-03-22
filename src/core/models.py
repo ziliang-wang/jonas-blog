@@ -50,7 +50,6 @@ class PublishedManager(models.Manager):
         return super(PublishedManager, self).get_queryset().filter(status='published')
     
 
-
 class Post(models.Model):
     STATUS_CHOICES = (
         ('draft', '草稿'),
@@ -92,3 +91,24 @@ class Post(models.Model):
         verbose_name = '博文管理'
         verbose_name_plural = '博文管理'
         ordering = ('-created',)
+
+
+class Comment(models.Model):
+    """ 評論表 """
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', verbose_name='博文')
+    name = models.CharField('暱稱', max_length=120)
+    ip = models.CharField('留言者的ip', max_length=50, blank=True)
+    body = models.TextField('評論內容')
+
+    active = models.BooleanField('有效', default=True)
+    created = models.DateTimeField('評論時間', auto_now_add=True)
+
+    def __str__(self):
+        return f'<{self.name}> commented <{self.post}>'
+    
+
+    class Meta:
+        ordering = ('-created',)
+        verbose_name = '博文評論'
+        verbose_name_plural = '博文評論'
+
