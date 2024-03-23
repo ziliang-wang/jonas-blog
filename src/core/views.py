@@ -10,7 +10,7 @@ def index(request):
     # items = Post.objects.filter(status='published')[:10]
     items = Post.published.all()[:10]
 
-    profile = Profile.objects.get(id=1)
+    profile = Profile.objects.first()
 
     sliders = Slider.objects.all()
 
