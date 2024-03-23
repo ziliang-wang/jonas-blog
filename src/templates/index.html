@@ -46,15 +46,15 @@
                 <!-- left -->
                 <div class="w-full md:w-1/4 md:mr-4 relative">
                     {% if item.img %}
-                    <img class="object-cover w-full md:w-60" src="{{ item.img.url }}" alt="{{ item.title }}">
+                    <img class="object-cover w-full md:w-30" src="{{ item.img.url }}" alt="{{ item.title }}">
                     {% else %}
-                    <img class="object-cover w-full md:w-60" src="http://picsum.photos/800/600" alt="{{ item.title }}">
+                    <img class="object-cover w-full md:w-30" src="http://picsum.photos/600/400" alt="{{ item.title }}">
                     {% endif %}
                     <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">{{ item.category.name }}</span>
                 </div>
                 <!-- right -->
-                <div class="md:w-3/4 box-border">
-                    <h3 class="text-lg font-bold mt-2"><a href="{% url 'details' item.slug %}">{{ item.title }}</a></h3>
+                <div class="md:w-3/4 box-border space-y-2">
+                    <h3 class="text-lg font-bold"><a href="{% url 'details' item.slug %}">{{ item.title }}</a></h3>
                     <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>2024-01-01</p>
                     <!-- summary -->
                     <p class="my-1 text-sm">{{ item.summary | safe }}</p>
