@@ -113,3 +113,19 @@ class Comment(models.Model):
         verbose_name = '博文評論'
         verbose_name_plural = '博文評論'
 
+
+class Slider(models.Model):
+    title = models.CharField('主標題', max_length=50)
+    sub_title = models.CharField('副標題', max_length=50, blank=True)
+    desc = models.TextField('描述', blank=True)
+    link = models.CharField('鏈接', max_length=120, blank=True)
+    img = models.ImageField('Banner圖片', upload_to='uploads', blank=True)
+    order = models.IntegerField('排序', default=0)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ('-order', 'id')
+        verbose_name = '首頁輪播圖'
+        verbose_name_plural = '首頁輪播圖'

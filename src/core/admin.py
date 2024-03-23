@@ -1,9 +1,18 @@
 from django.contrib import admin
 from django import forms
-from .models import Profile, Category, Post, Comment
+from .models import Profile, Category, Post, Comment, Slider
 from django_summernote.admin import SummernoteModelAdmin
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 # Register your models here.
+
+@admin.register(Slider)
+class SliderAdmin(admin.ModelAdmin):
+    list_display = ('title', 'sub_title', 'link', 'order')
+    link_fields = ('title',)
+    list_editable = ('order', )
+    ordering = ('-order', 'id')
+
+
 class ProfileAdmin(admin.ModelAdmin):
     """ 個人資料管理 """
     list_display = (
