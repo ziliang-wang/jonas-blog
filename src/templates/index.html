@@ -65,33 +65,9 @@
                 </div>
             </div>
             <!-- Category -->
-            <div class="mb-8">
-                <h2 class="text-xl mb-3 border-b py-2">
-                    <span class="border-b-4 border-b-primary py-2">博文分類</span>
-                </h2>
-                <ul class="mb-6">
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>心情隨筆</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>LangChain筆記</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>React</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Vue</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Python</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Js/Ts/Node.JS</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                    <li class="mb-2 border-b border-dotted pb-2"><a class="flex justify-between items-center" href="#"><span>Flutter/Dart</span><span class="bg-primary items-center py-1 px-2 rounded-md text-white">12</span></a></li>
-                </ul>
-            </div>
+            {% include 'core/categories.html' %}
             <!-- newest articles -->
-            <div class="mb-8">
-                <h2 class="text-xl mb-3 border-b py-2">
-                    <span class="border-b-4 border-b-primary py-2">最新博文</span>
-                </h2>
-                <ul class="my-4">
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 01</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 02</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 03</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 04</a></li>
-                    <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="#">博文日誌標題文字 05</a></li>
-                </ul>
-            </div>
+            {% include 'core/latest-posts.html' %}
             <!-- recommended articles -->
             <div class="mb-8">
                 <h2 class="text-xl mb-3 border-b py-2">
