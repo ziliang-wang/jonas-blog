@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Profile, Category, Post, Comment
+from .models import Profile, Category, Post, Comment, Slider
 from taggit.models import Tag
 from django.urls import reverse
 # from django.http import HttpResponse
@@ -9,7 +9,10 @@ from django.urls import reverse
 def index(request):
     # items = Post.objects.filter(status='published')[:10]
     items = Post.published.all()[:10]
-    return render(request, 'index.html', {'items': items})
+
+    sliders = Slider.objects.all()
+
+    return render(request, 'index.html', {'items': items, 'sliders': sliders})
 
 
 def details(request, slug):
@@ -124,3 +127,6 @@ def search_posts(request):
         'page': page,
         'items': posts
     })
+
+
+# slider
