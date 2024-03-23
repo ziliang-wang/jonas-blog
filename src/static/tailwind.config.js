@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["../templates/**/*.html"],
+  content: ["../templates/**/*.html", "../core/templates/**/*.html"],
   theme: {
     screens: {
       md: '1120px',
