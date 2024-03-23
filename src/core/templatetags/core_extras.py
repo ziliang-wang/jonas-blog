@@ -23,3 +23,31 @@ def display_tags():
     return {
         'tags': tags
     }
+
+# weather
+@register.inclusion_tag('core/weather.html')
+def weather():
+    result = {
+        'location': '台北',
+        'text': '未知',
+        'temperature': '未知'
+    }
+    
+    import requests
+    from blog.settings import WEATHER_API_URL, WEATHER_API_KEY, WEATHER_LOCATION, WEATHER_LANGUAGE
+
+    payload = {
+        'key': WEATHER_API_KEY,
+        'location': WEATHER_LOCATION,
+        'language': WEATHER_LANGUAGE
+    }
+
+    r = requests.get(WEATHER_API_URL, params=payload)
+
+    if r.status_code == 200:
+        data = r.json()
+        result['location'] = data['results'][0]['location']['name']
+        result['text'] = data['results'][0]['now']['text']
+        result['temperature'] = data['results'][0]['now']['temperature']
+
+    return result

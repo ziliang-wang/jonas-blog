@@ -133,3 +133,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# weather
+WEATHER_API_URL = 'https://api.seniverse.com/v3/weather/now.json'
+WEATHER_API_KEY = 'SRfu0GJhJI41m0nRw'
+WEATHER_LOCATION = 'taipei'
+WEATHER_LANGUAGE = 'zh-Hant'
