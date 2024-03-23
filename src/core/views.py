@@ -104,7 +104,7 @@ def search_posts(request):
 
     q = request.GET.get('q', None)
 
-    if q:
+    if q.strip():
         items = items.filter(title__contains=q)
     else:
         return redirect(reverse('posts'))
