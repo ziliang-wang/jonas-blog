@@ -30,7 +30,7 @@
                         <!-- right -->
                         <div class="w-full box-border md:mr-2 mt-2 md:mt-0">
                             <!-- title -->
-                            <h3 class="text-lg font-bold mt-2"><a href="{% url 'details' item.slug %}">{{ item.title }}</a></h3>
+                            <h3 class="text-lg font-bold mt-2"><a href="{% url 'details' item.slug %}">{{ item.title | highlight:request.GET.q | safe }}</a></h3>
                             <!-- summary -->
                             <p class="my-1 text-sm">{{ item.summary | safe }}</p>
                         </div>
