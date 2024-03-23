@@ -119,17 +119,20 @@
         <!-- comment section -->
         <div class="my-6 px-2">
             <div>
-                <form action="" method="POST">
+                <form action="" method="POST" id="guestForm">
                     {% csrf_token %}
                     <p class="mb-2 ">
-                        <input class="border rounded-md p-2 text-sm" placeholder="您的暱稱" type="text" name="name" id="name">
+                        <input class="border rounded-md p-2 text-sm" placeholder="您的暱稱" type="text" name="name">
                     </p>
                     <p>
-                        <textarea class="w-full border rounded-md p-2 text-sm" style="resize: none;" rows="3" name="body" id="body" placeholder="發表您的評論"></textarea>
+                        <textarea class="w-full border rounded-md p-2 text-sm" style="resize: none;" rows="3" name="body" placeholder="發表您的評論"></textarea>
                     </p>
-                    <div class="text-right my-2">
-                        <input type="submit" value="確認" class="bg-primary py-1 px-4 text-sm text-white rounded-full cursor-pointer">
-                        <input type="submit" value="取消" class="border py-1 px-4 text-sm rounded-full cursor-pointer">
+                    <div class="flex justify-between items-center my-2">
+                        <p id="message" style="color: red;"></p>
+                        <div>
+                            <input type="submit" value="確認" class="bg-primary py-1 px-4 text-sm text-white rounded-full cursor-pointer">
+                            <input type="reset" value="取消" class="border py-1 px-4 text-sm rounded-full cursor-pointer">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -175,3 +178,33 @@
     </div>
 </main>
 {% endblock content %}
+
+{% block scripts %}
+    <script>
+        const guestForm = document.getElementById('guestForm');
+        const message = document.getElementById('message');
+        const name = guestForm.name;
+        const content = guestForm.body;
+
+        guestForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            if (name.value.trim().length < 3) {
+                message.innerHTML = 'Hi,暱稱太少了啦!';
+                return;
+            } else {
+                message.innerHTML = '';
+            }
+
+            if (content.value.trim().length < 6) {
+                message.innerHTML = 'Hi,留言內容太少了啦!';
+                return;
+            } else {
+                message.innerHTML = '';
+            }
+
+            this.submit();
+
+        }, false);
+    </script>
+{% endblock scripts %}
