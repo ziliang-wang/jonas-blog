@@ -10,9 +10,11 @@ def index(request):
     # items = Post.objects.filter(status='published')[:10]
     items = Post.published.all()[:10]
 
+    profile = Profile.objects.get(id=1)
+
     sliders = Slider.objects.all()
 
-    return render(request, 'index.html', {'items': items, 'sliders': sliders})
+    return render(request, 'index.html', {'items': items, 'sliders': sliders, 'profile': profile})
 
 
 def details(request, slug):
