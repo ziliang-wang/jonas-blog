@@ -40,9 +40,9 @@
                     <li></li>
                 </ul>
                 <div class="hidden md:flex items-center space-x-4">
-                    <form action="#">
+                    <form action="{% url 'search_posts' %}">
                         <div class="relative text-blog-dark">
-                            <input class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" type="search" name="q" id="q" autocomplete="false" placeholder="搜索">
+                            <input class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" type="search" name="q" id="q" value="{{ request.GET.q }}" autocomplete="false" placeholder="搜索">
                             <button class="absolute right-0 top-0 mt-3 mr-4" type="submit">
                                 <!-- <img class="w-5 h-4" src="./images/search.svg" alt="Search"> -->
                                 <img class="w-5 h-4" src="{% static 'images/search.svg' %}" alt="Search">

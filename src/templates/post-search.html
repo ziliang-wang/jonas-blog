@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load core_extras %}
+
+{% block breadcrumb %}
+<nav class="py-3 px-5 text-blog-dark bg-gray-50">
+    <div class="container px-2">
+        <ul class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
+            <li>
+                <a href="/"><i class="fa fa-home mr-1"></i>首 頁</a>
+            </li>
+            <li>
+                <i class="fa fa-chevron-right mr-2"></i><span class="text-gray-400">搜索</span>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<!-- main content -->
+<main class="container my-4 flex flex-col md:flex-row items-start">
+        <!-- left block -->
+        <div class="w-full bg-white p-2 md:w-3/4 md:mr-4">
+            <!-- list item -->
+            {% if items %}
+                {% for item in items %}
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-0 border-b pb-2">
+                        <!-- right -->
+                        <div class="w-full box-border md:mr-2 mt-2 md:mt-0">
+                            <!-- title -->
+                            <h3 class="text-lg font-bold mt-2"><a href="{% url 'details' item.slug %}">{{ item.title }}</a></h3>
+                            <!-- summary -->
+                            <p class="my-1 text-sm">{{ item.summary | safe }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="w-full box-border md:mr-2 mt-2 md:mt-0">
+                    <p class="my-1 text-sm text-center">查無搜索結果</p>
+                </div>
+            {% endif %}
+            
+            <!-- pagenation button -->
+            <div class="container flex justify-center mx-auto py-4">
+                <ul class="flex">
+                    <!-- prev -->
+                    {% if items.has_previous %}
+                    <li><a href="?page={{ items.previous_page_number }}" class="mx-4 align-middle h-10 py-3 px-5 text-blog-dark bg-white border border-blog-dark">上一頁</a></li>
+                    {% endif %}
+                    <!-- next -->
+                    {% if items.has_next %}
+                    <li><a href="?page={{ items.next_page_number }}" class="mx-4 align-middle h-10 py-3 px-5 text-blog-dark bg-white border border-blog-dark">下一頁</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- right block -->
+        <div class="w-full bg-white p-2 md:w-1/4">
+            <!-- weather forcast -->
+            <div class="mb-8 w-full relative">
+                <!-- <img class="w-full shadow-md" src="./images/weather.jpg" alt="Weather"> -->
+                <img class="w-full shadow-md" src="{% static 'images/weather.jpg' %}" alt="Weather">
+                <div class="absolute top-6 left-12 text-white">
+                    <div class="text-xl mb-2">新北天氣</div>
+                    <div class="text-4xl mb-2 font-light">晴</div>
+                    <div class="text-2xl mb-2 font-light">23</div>
+                </div>
+            </div>
+            <!-- categories -->
+            {% include 'core/categories.html' %}
+            <!-- newest articles -->
+            {% include 'core/latest-posts.html' %}
+            <!-- recommended articles -->
+            {% include 'core/recommends.html' %}
+            <!-- hot tags -->
+            {% display_tags %}
+        </div>
+</main>
+
+{% endblock content %}

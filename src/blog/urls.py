@@ -26,6 +26,7 @@ urlpatterns = [
     path('posts/', views.posts, name='posts'),
     # path('posts/<int:pid>/', views.details, name='details'),
     path('posts/<slug:slug>/', views.details, name='details'),
+    path('search/', views.search_posts, name='search_posts'),
     path("admin/", admin.site.urls),
     path('summernote/', include('django_summernote.urls'))
 ]

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Profile, Category, Post, Comment
 from taggit.models import Tag
+from django.urls import reverse
 # from django.http import HttpResponse
 
 # Create your views here.
@@ -95,3 +96,31 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+def search_posts(request):
+
+    items = Post.published.all()
+
+    q = request.GET.get('q', None)
+
+    if q:
+        items = items.filter(title__contains=q)
+    else:
+        return redirect(reverse('posts'))
+
+    paginator = Paginator(items, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    return render(request, 'post-search.html', {
+        'page': page,
+        'items': posts
+    })
