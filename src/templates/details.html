@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load core_extras %}
 
 {% block title %} - {{item.title}}{% endblock %}
 
@@ -178,20 +179,7 @@
         <!-- recommended articles -->
         {% include 'core/recommends.html' %}
         <!-- hot tags -->
-        <div class="mb-2">
-            <h2 class="text-xl mb-3 border-b py-2">
-                <span class="border-b-4 border-b-primary py-2">熱門標簽</span>
-            </h2>
-            <div class="my-4 text-xs text-white flex flex-wrap">
-                <span class="bg-blog-dark p-2 m-1"><a href="#">Python</a></span>
-                <span class="bg-blog-dark p-2 m-1"><a href="#">SQL</a></span>
-                <span class="bg-blog-dark p-2 m-1"><a href="#">FastAPI</a></span>
-                <span class="bg-blog-dark p-2 m-1"><a href="#">Django</a></span>
-                <span class="bg-blog-dark p-2 m-1"><a href="#">Flask</a></span>
-                <span class="bg-blog-dark p-2 m-1"><a href="#">React</a></span>
-                <span class="bg-blog-dark p-2 m-1"><a href="#">LangChain</a></span>
-            </div>
-        </div>
+        {% display_tags %}
     </div>
 </main>
 {% endblock content %}
