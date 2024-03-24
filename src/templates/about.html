@@ -3,9 +3,14 @@
 
 {% block title %} - 關於我{% endblock %}
 
+{% block header %}
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65ff85fa36e2d3001920091b&product=sticky-share-buttons&source=platform" async="async"></script>
+{% endblock header %}
+
 {% block breadcrumb %}
 <!-- breadcrumbs -->
     <nav class="py-3 px-5 text-blog-dark bg-gray-50">
+        <div class="sharethis-sticky-share-buttons"></div>
         <div class="container px-2">
             <ul class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
                 <li>
