@@ -71,6 +71,17 @@
             </ul>
         </nav>
     </header>
+    <!-- mobile search -->
+    <div class="flex justify-center w-full md:hidden">
+        <form action="{% url 'search_posts' %}" class="w-full">
+            <div class="relative text-blog-dark w-full">
+                <input class="bg-white h-10 px-5 pr-10 w-full text-sm focus:outline-none" type="search" name="q" id="q" value="{{ request.GET.q }}" autocomplete="false" placeholder="文章搜索">
+                <button class="absolute right-0 top-0 mt-3 mr-4" type="submit">
+                    <img class="w-5 h-4" src="{% static 'images/search.svg' %}" alt="Search">
+                </button>
+            </div>
+        </form>
+    </div>
     {% block breadcrumb %}
     <!-- breadcrumbs -->
     <nav class="py-3 px-5 text-blog-dark bg-gray-50">
