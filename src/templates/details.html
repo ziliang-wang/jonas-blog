@@ -83,7 +83,7 @@
                 </div>
                 <div class="w-3/4">
                     {% if prev_post %}
-                    <div class="text-sm"><a href="{% url 'details' prev_post.id %}"><i class="fas fa-caret-left text-primary"></i> 上一篇</a></div>
+                    <div class="text-sm"><a href="{{ prev_post.get_absolute_url }}"><i class="fas fa-caret-left text-primary"></i> 上一篇</a></div>
                     <h4><a href="{{ prev_post.get_absolute_url }}">{{ prev_post.title }}</a></h4>
                     {% else %}
                     <h4>沒有上一篇了</h4>
@@ -95,7 +95,7 @@
                 <div class="w-3/4 text-right md:justify-end md:text-right">
                     
                     {% if next_post %}
-                    <div class="text-sm"><a href="{% url 'details' next_post.id %}">下一篇 <i class="fas fa-caret-right text-primary"></i></a></div>
+                    <div class="text-sm"><a href="{{ next_post.get_absolute_url }}">下一篇 <i class="fas fa-caret-right text-primary"></i></a></div>
                     <h4><a href="{{ next_post.get_absolute_url }}">{{ next_post.title }}</a></h4>
                     {% else %}
                     <h4>沒有下一篇了</h4>
