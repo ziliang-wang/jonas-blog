@@ -1253,6 +1253,14 @@ video {
   text-decoration-line: underline;
 }
 
+.hover\:underline-offset-auto:hover {
+  text-underline-offset: auto;
+}
+
+.hover\:underline-offset-1:hover {
+  text-underline-offset: 1px;
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;

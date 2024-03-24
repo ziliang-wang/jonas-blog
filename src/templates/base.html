@@ -111,7 +111,7 @@
                     <h4 class="font-bold mb-3">最新博文</h4>
                     <ul class="space-y-1">
                         {% for item in LATEST_POSTS %}
-                            <li><a href="{{ item.get_absolute_url }}"><i class="fa fa-chevron-right mr-2"></i>{{ item.title }}</a></li>
+                            <li><a href="{{ item.get_absolute_url }}" class="hover:underline"><i class="fa fa-chevron-right mr-2"></i>{{ item.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -119,16 +119,16 @@
                     <h4 class="font-bold mb-3">推薦閱讀</h4>
                     <ul class="space-y-1">
                         {% for item in RECOMMEND_POSTS %}
-                            <li><a href="{{ item.get_absolute_url }}"><i class="fa fa-chevron-right mr-2"></i>{{ item.title }}</a></li>
+                            <li><a href="{{ item.get_absolute_url }}" class="hover:underline"><i class="fa fa-chevron-right mr-2"></i>{{ item.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div class="w-1/4">
                     <h4 class="font-bold mb-3">快速鏈接</h4>
                     <ul class="space-y-1">
-                        <li><a href="/"><i class="fa fa-chevron-right mr-2"></i>首 頁</a></li>
-                        <li><a href="{% url 'posts' %}"><i class="fa fa-chevron-right mr-2"></i>博文日誌</a></li>
-                        <li><a href="{% url 'about' %}"><i class="fa fa-chevron-right mr-2"></i>關於我</a></li>
+                        <li><a href="/" class="hover:underline"><i class="fa fa-chevron-right mr-2"></i>首 頁</a></li>
+                        <li><a href="{% url 'posts' %}" class="hover:underline"><i class="fa fa-chevron-right mr-2"></i>博文日誌</a></li>
+                        <li><a href="{% url 'about' %}" class="hover:underline"><i class="fa fa-chevron-right mr-2"></i>關於我</a></li>
                     </ul>
                 </div>
             </div>
