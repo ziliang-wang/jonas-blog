@@ -1292,6 +1292,10 @@ video {
     margin-top: 0px;
   }
 
+  .md\:-mt-1 {
+    margin-top: -0.25rem;
+  }
+
   .md\:block {
     display: block;
   }
