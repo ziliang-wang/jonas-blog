@@ -149,26 +149,30 @@
                 <span class="border-b-4 border-b-primary py-4">精彩評論</span>
             </h4>
             <!-- comment list -->
-            {% for comment in item.comments.all %}
-                {% if comment.active %}
-                    <div class="flex my-4">
-                        <!-- left -->
-                        <div class="mr-4">
-                            <img class="rounded-full" src="https://picsum.photos/40" alt="{{ comment.name }}">
+            {% if item.comments.all %}
+                {% for comment in item.comments.all %}
+                    {% if comment.active %}
+                        <div class="flex my-4">
+                            <!-- left -->
+                            <div class="mr-4">
+                                <img class="rounded-full" src="https://picsum.photos/40" alt="{{ comment.name }}">
+                            </div>
+                            <!-- right -->
+                            <div class="">
+                                <!-- top -->
+                                <h4>{{ comment.name }}</h4>
+                                <!-- middle -->
+                                <p class="text-sm space-x-4"><span>{{ comment.created }}</span><span>{{ comment.ip }}</span></p>
+                                <!-- bottom -->
+                                <p class="my-2 text-sm">{{ comment.body }}</p>
+                                <hr>
+                            </div>
                         </div>
-                        <!-- right -->
-                        <div class="">
-                            <!-- top -->
-                            <h4>{{ comment.name }}</h4>
-                            <!-- middle -->
-                            <p class="text-sm space-x-4"><span>{{ comment.created }}</span><span>{{ comment.ip }}</span></p>
-                            <!-- bottom -->
-                            <p class="my-2 text-sm">{{ comment.body }}</p>
-                            <hr>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %} 
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+            <p class="text-md">暫無網友留言</p>
+            {% endif %}
         </div>
     </div>
     <!-- right block -->
