@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="jonas, ai, langchain, flutter, node.js, llm, react, vue, python, sql, 技術分享, django, fastapi, flask, javascript, typescript">
     <meta name="description" content="Jonas技術分享,心得體會,有的沒的那些">
-    <title>Jonas Blog{% block title %}{% endblock title %}</title>
+    <title>Stay Hungry, Stay Young{% block title %}{% endblock title %}</title>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://kit.fontawesome.com/bd8f0cf54d.js" crossorigin="anonymous"></script>
@@ -67,9 +67,9 @@
             </div>
             <!-- mobile -->
             <ul class="mobile-menu hidden md:hidden">
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="/">首 頁</a></li>
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="{% url 'posts' %}">博文日誌</a></li>
-                <li class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="{% url 'about' %}">關於我</a></li>
+                <li data-name="home" class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="/">首 頁</a></li>
+                <li data-name="blog" class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="{% url 'posts' %}">博文日誌</a></li>
+                <li data-name="about" class="py-2 px-4 text-sm hover:bg-blog-dark hover:text-white"><a href="{% url 'about' %}">關於我</a></li>
             </ul>
         </nav>
     </header>
@@ -161,6 +161,17 @@
 
     btnBurger.addEventListener('click', () => {
         menuMobile.classList.toggle('hidden');
+    }, false);
+
+    menuMobile.addEventListener('touchstart', (e) => {
+        const self = e.target.getAttribute('data-name');
+        if (self === 'home') {
+            location.href = '/';
+        } else if (self === 'blog') {
+            location.href = '/posts';
+        } else {
+            location.href = '/about';
+        }
     }, false);
 </script>
 </html>
