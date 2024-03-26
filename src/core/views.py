@@ -18,7 +18,7 @@ def index(request):
 
 
 def details(request, slug):
-
+    profile = Profile.objects.first()   
     # item = Post.objects.get(id=pid)
     item = Post.objects.get(slug=slug)
     # tags = item.tags.split(',')
@@ -53,13 +53,15 @@ def details(request, slug):
                   {'item': item, 
                 #    'tags': tags, 
                     'prev_post': prev_post,
-                    'next_post': next_post })
+                    'next_post': next_post,
+                    'profile': profile })
 
 def about(request):
+    profile = Profile.objects.first()
     item = Profile.objects.get(id=1)
     item.hits += 1
     item.save()
-    return render(request, 'about.html', {'item': item})
+    return render(request, 'about.html', {'item': item, 'profile': profile})
 
 
 def posts(request):
@@ -67,6 +69,7 @@ def posts(request):
     # items = Post.objects.filter(status='published')[:10]
     # items = Post.published.all()[:10]
     items = Post.published.all()
+    profile = Profile.objects.first()
     # 按 標簽 / 分類 過濾
     tag = request.GET.get('tag', None)
     cat = request.GET.get('cat', None)
@@ -91,7 +94,7 @@ def posts(request):
         items = paginator.page(paginator.num_pages)
 
     categories = Category.objects.all()    
-    return render(request, 'post-list.html', {'items': items, 'categories': categories})
+    return render(request, 'post-list.html', {'items': items, 'categories': categories, 'profile': profile})
 
 
 def get_client_ip(request):
