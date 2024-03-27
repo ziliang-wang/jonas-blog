@@ -1328,6 +1328,10 @@ video {
     margin-bottom: 0.5rem;
   }
 
+  .md\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
   .md\:block {
     display: block;
   }
