@@ -75,6 +75,12 @@
         </nav>
     </header>
     <!-- mobile search -->
+    <div class="md:hidden text-center">
+        <a href="javascript: alert('即將推出，敬請期待^_^');" class="bg-primary text-white text-sm 
+            py-4 px-4 block hover:bg-secondary">
+            <i class="fa-regular fa-comment mr-2"></i>AI英語學習助理 (即將推出)
+        </a>
+    </div>
     <div class="flex justify-center w-full md:hidden">
         <form action="{% url 'search_posts' %}" class="w-full">
             <div class="relative text-blog-dark w-full">
@@ -84,12 +90,6 @@
                 </button>
             </div>
         </form>
-    </div>
-    <div class="md:hidden text-center">
-        <a href="javascript: alert('即將推出，敬請期待^_^');" class="bg-primary text-white text-sm 
-            py-4 px-4 block hover:bg-secondary">
-            <i class="fa-regular fa-comment mr-2"></i>AI英語學習助理 (即將推出)
-        </a>
     </div>
     {% block breadcrumb %}
     <!-- breadcrumbs -->
