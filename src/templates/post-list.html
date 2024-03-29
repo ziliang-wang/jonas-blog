@@ -51,7 +51,7 @@
                     {% if item.img %}
                     <img class="object-cover w-full md:w-60" src="{{ item.img.url }}" alt="{{ item.title }}">
                     {% else %}
-                    <img class="object-cover w-full md:w-60" src="http://picsum.photos/800/600" alt="{{ item.title }}">
+                    <img class="object-cover w-full md:w-60" src="http://picsum.photos/id/{{ forloop.counter }}{{ 3 }}/600/400" alt="{{ item.title }}">
                     {% endif %}
                     <span class="absolute bg-primary text-white text-sm px-2 py-1 top-2 right-2">{{ item.category.name }}</span>
                 </div>
