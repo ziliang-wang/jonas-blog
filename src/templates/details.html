@@ -17,7 +17,7 @@
                 <a href="/"><i class="fa fa-home mr-1"></i>首 頁</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-chevron-right mr-3"></i>博文日誌</a>
+                <a href="/posts"><i class="fa fa-chevron-right mr-3"></i>博文日誌</a>
             </li>
             <li>
                 <i class="fa fa-chevron-right mr-3"></i><span class="text-gray-400">正文</span>
@@ -72,7 +72,7 @@
         <!-- last next -->
         <div class="my-6 flex md:flex-row md:px-2 justify-between md:mx-0">
             <!-- last button -->
-            <div class="-translate-x-9 flex w-1/2 md:w-1/2 justify-between items-center space-x-2 md:border-r md:mx-0">
+            <div class="-translate-x-9 md:translate-x-0 flex w-1/2 md:w-1/2 justify-between items-center space-x-2 md:border-r md:mx-0">
                 <div class="w-1/4">
                     <!-- https://picsum.photos/140/125 -->
                     {% if prev_post.img %}
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <!-- next button -->
-            <div class="translate-x-9 flex w-1/2 md:w-1/2 justify-between items-center space-x-2 md:mx-0">
+            <div class="translate-x-9 md:translate-x-0 flex w-1/2 md:w-1/2 justify-between items-center space-x-2 md:mx-0">
                 <div class="w-3/4 text-right md:justify-end md:text-right">
                     {% if next_post %}
                     <div class="text-sm"><a href="{{ next_post.get_absolute_url }}">下一篇 <i class="fas fa-caret-right text-primary"></i></a></div>
