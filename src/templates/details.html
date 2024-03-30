@@ -84,7 +84,7 @@
                 <div class="w-3/4">
                     {% if prev_post %}
                     <div class="text-sm"><a href="{{ prev_post.get_absolute_url }}"><i class="fas fa-caret-left text-primary"></i> 上一篇</a></div>
-                    <h4><a href="{{ prev_post.get_absolute_url }}">{{ prev_post.title }}</a></h4>
+                    <h4 class="bg-blue-200 w-3/4 rounded-md text-[9px] py-2 px-2 md:text-[12px] mt-1"><a href="{{ prev_post.get_absolute_url }}">{{ prev_post.title }}</a></h4>
                     {% else %}
                     <h4>沒有上一篇了</h4>
                     {% endif %}
@@ -93,10 +93,11 @@
             <!-- next button -->
             <div class="flex w-full md:w-1/2 justify-between items-center space-x-2 -mx-12 md:mx-0">
                 <div class="w-3/4 text-right md:justify-end md:text-right">
-                    
                     {% if next_post %}
                     <div class="text-sm"><a href="{{ next_post.get_absolute_url }}">下一篇 <i class="fas fa-caret-right text-primary"></i></a></div>
-                    <h4><a href="{{ next_post.get_absolute_url }}">{{ next_post.title }}</a></h4>
+                    <div class="flex justify-end">
+                        <h4 class="bg-blue-200 w-3/4 text-left rounded-md text-[10px] py-2 px-2 md:text-[12px] mt-1"><a href="{{ next_post.get_absolute_url }}">{{ next_post.title }}</a></h4>
+                    </div>
                     {% else %}
                     <h4>沒有下一篇了</h4>
                     {% endif %}
