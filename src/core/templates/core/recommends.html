@@ -4,7 +4,7 @@
     </h2>
     <ul class="my-4">
         {% for item in RECOMMEND_POSTS %}
-            <li class="mb-2"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+            <li class="mb-2 truncate"><i class="fa fa-chevron-right text-sm text-slate-300 mr-2"></i><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
         {% endfor %}
     </ul>
 </div>
