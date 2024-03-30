@@ -63,17 +63,17 @@
             </div>
         </div>
         <!-- article tag -->
-        <div class="my-4 border-y py-6 space-x-2 text-sm px-2">
+        <div class="my-4 flex items-center border-y py-6 space-x-2 text-sm px-2">
             <span><i class="fas fa-tag"></i> 標簽: </span>
             {% for tag in item.tags.all %}
-            <span class="py-1 px-2 bg-blog-dark text-white uppercase mb-2 inline-block space-y-2"><a href="{% url 'posts' %}?tag={{ tag.slug }}">{{ tag }}</a></span>
+            <span class="translate-y-1 py-1 px-2 bg-blog-dark text-white uppercase mb-2 inline-block space-y-2"><a href="{% url 'posts' %}?tag={{ tag.slug }}">{{ tag }}</a></span>
             {% endfor %}
         </div>
         <!-- last next -->
-        <div class="my-6 flex md:flex-row md:px-2 justify-between">
+        <div class="my-6 flex md:flex-row md:px-2 justify-between -mx-14 md:mx-0">
             <!-- last button -->
-            <div class="flex w-full md:w-1/2 justify-between items-center space-x-2 md:border-r -mx-12 md:mx-0">
-                <div class="md:w-1/4">
+            <div class="flex w-1/2 md:w-1/2 justify-between items-center space-x-2 md:border-r md:mx-0">
+                <div class="w-1/4">
                     <!-- https://picsum.photos/140/125 -->
                     {% if prev_post.img %}
                     <img class="rounded-md hidden md:block" src="{{ prev_post.img.url }}" alt="{{ prev_post.title }}">
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <!-- next button -->
-            <div class="flex w-full md:w-1/2 justify-between items-center space-x-2 -mx-12 md:mx-0">
+            <div class="flex w-1/2 md:w-1/2 justify-between items-center space-x-2 md:mx-0">
                 <div class="w-3/4 text-right md:justify-end md:text-right">
                     {% if next_post %}
                     <div class="text-sm"><a href="{{ next_post.get_absolute_url }}">下一篇 <i class="fas fa-caret-right text-primary"></i></a></div>
