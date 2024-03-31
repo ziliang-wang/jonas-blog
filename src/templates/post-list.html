@@ -59,6 +59,8 @@
                 <!-- right -->
                 <div class="w-full md:w-3/4 box-border space-y-4">
                     <h3 class="text-lg font-bold mt-2 md:-mt-1"><a href="{% url 'details' item.slug %}" class="hover:underline">{{ item.title }}</a></h3>
+                    <!-- summary -->
+                    <p class="my-1 text-sm">{{ item.summary | safe }}</p>
                     <div class="flex justify-between mt-3 items-center">
                         <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>{{ item.created }}</p>
                         <div class="text-sm space-x-2">
@@ -68,8 +70,6 @@
                     </div>
                     <!-- <h3 class="text-lg font-bold mt-2"><a href="{% url 'details' item.slug %}">{{ item.title }}</a></h3> -->
                     <!-- <p class="text-sm mt-1"><i class="fa fa-clock mr-1"></i>{{ item.created }}</p> -->
-                    <!-- summary -->
-                    <p class="my-1 text-sm">{{ item.summary | safe }}</p>
                     <!-- <div class="text-sm flex justify-between mb-2">
                         <div class="flex items-center space-x-2 mt-2">
                             <img class="w-7 rounded-full" src="{{ item.author.profile.avatar.url }}" alt="{{ item.author.profile.aliasname }}">
