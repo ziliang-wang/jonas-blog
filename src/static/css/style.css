@@ -1175,12 +1175,8 @@ video {
   line-height: 2.5rem;
 }
 
-.text-\[10px\] {
-  font-size: 10px;
-}
-
-.text-\[9px\] {
-  font-size: 9px;
+.text-\[12px\] {
+  font-size: 12px;
 }
 
 .text-lg {
@@ -1201,10 +1197,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[12px\] {
-  font-size: 12px;
 }
 
 .font-bold {
@@ -1435,9 +1427,5 @@ video {
 
   .md\:text-right {
     text-align: right;
-  }
-
-  .md\:text-\[12px\] {
-    font-size: 12px;
   }
 }
