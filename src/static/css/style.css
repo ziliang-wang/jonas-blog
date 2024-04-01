@@ -608,6 +608,18 @@ video {
   top: 1.5rem;
 }
 
+.left-5 {
+  left: 1.25rem;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -1225,6 +1237,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold {
