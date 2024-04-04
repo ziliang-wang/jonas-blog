@@ -612,10 +612,6 @@ video {
   margin: 1.25rem;
 }
 
-.m-6 {
-  margin: 1.5rem;
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1175,8 +1171,8 @@ video {
   line-height: 2.5rem;
 }
 
-.text-\[0\.9722vw\] {
-  font-size: 0.9722vw;
+.text-\[1\.1111vw\] {
+  font-size: 1.1111vw;
 }
 
 .text-\[12px\] {
@@ -1203,8 +1199,16 @@ video {
   line-height: 1rem;
 }
 
-.text-\[1\.1111vw\] {
-  font-size: 1.1111vw;
+.text-\[1\.3889vw\] {
+  font-size: 1.3889vw;
+}
+
+.text-\[20px\] {
+  font-size: 20px;
+}
+
+.text-\[14px\] {
+  font-size: 14px;
 }
 
 .font-bold {
@@ -1449,5 +1453,13 @@ video {
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .md\:text-\[16px\] {
+    font-size: 16px;
+  }
+
+  .md\:text-\[14px\] {
+    font-size: 14px;
   }
 }
