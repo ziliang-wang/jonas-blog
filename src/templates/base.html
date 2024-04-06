@@ -55,7 +55,7 @@
                     <div>
                         <a href="https://chat-six-puce.vercel.app/" target="_blank" class="bg-primary text-white text-sm 
                             py-2 px-4 rounded-full hover:bg-secondary">
-                            <i class="fa-regular fa-comment mr-2"></i>AI英語學習助理
+                            <i class="fa-regular fa-comment mr-2"></i>Jomunn AI英語學習助理
                         </a>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
     <div class="md:hidden text-center">
         <a href="https://chat-six-puce.vercel.app/" target="_blank" class="bg-primary text-white text-sm 
             py-4 px-4 block hover:bg-secondary">
-            <i class="fa-regular fa-comment mr-2"></i>AI英語學習助理
+            <i class="fa-regular fa-comment mr-2"></i>Jomunn AI英語學習助理
         </a>
     </div>
     <div class="flex justify-center w-full md:hidden">
@@ -158,13 +158,19 @@
             <p>Copyright &copy; 2024 <a class="hover:underline" href="mailto:wjlester77@gmail.com">&nbsp;Jonas&nbsp;</a> 版權所有</p>
         </div>
     </footer>
-
+    <!-- backto top -->
+    <div class="arrow-up hidden cursor-pointer fixed right-3 bottom-[4rem] z-[99999]">
+        <i class="fa-solid fa-circle-arrow-up text-[3rem] text-secondary"></i>
+    </div>
     {% block scripts %}
     {% endblock scripts %}
 </body>
 <script>
     const btnBurger = document.querySelector('button.mobile-menu-button');
     const menuMobile = document.querySelector('.mobile-menu');
+    const backToUp = document.querySelector('.arrow-up');
+    
+    let backToUpTimer;
 
     btnBurger.addEventListener('click', () => {
         menuMobile.classList.toggle('hidden');
@@ -179,6 +185,25 @@
         } else {
             location.href = '/about';
         }
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop >= 160) {
+            backToUp.classList.remove('hidden');
+        } else {
+            backToUp.classList.add('hidden');
+        }
+    }, false);
+
+    backToUp.addEventListener('click', (e) => {
+        clearInterval(backToUpTimer);
+        backToUpTimer = setInterval(() => {
+            document.documentElement.scrollTop -= 100;
+            if (document.documentElement.scrollTop <= 0) {
+                clearInterval(backToUpTimer);
+            }
+        }, 20);
     }, false);
 </script>
 </html>
